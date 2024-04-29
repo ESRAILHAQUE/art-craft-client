@@ -16,10 +16,17 @@ const ContactUs = () => {
   return (
     <div className="p-8">
       <h3 className="text-3xl text-center mb-6 font-bold">Contact Us</h3>
+<<<<<<< HEAD
+      <div className="flex flex-col lg:flex-row lg:px-16 gap-10">
+        <div className="container mt-10  lg:w-1/3">
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+            <div className="mb-4 ">
+=======
       <div className="flex flex-col lg:flex-row lg:px-16">
         <div className="container mt-10">
           <form onSubmit={handleSubmit(onSubmit)} className="max-w-md">
             <div className="mb-4">
+>>>>>>> 40088cb8f82bbd3bf328394131aa9636e06a3b9a
               <label
                 htmlFor="name"
                 className="block text-gray-700 font-semibold"
@@ -30,7 +37,7 @@ const ContactUs = () => {
                 {...register("name", { required: "Name is required" })}
                 type="text"
                 id="name"
-                className="input border border-gray-300"
+                className="input border border-gray-300 w-full"
               />
               {errors.name && (
                 <p className="text-red-500">{errors.name.message}</p>
@@ -53,7 +60,7 @@ const ContactUs = () => {
                 })}
                 type="email"
                 id="email"
-                className="input border border-gray-300"
+                className="input border border-gray-300 w-full"
               />
               {errors.email && (
                 <p className="text-red-500">{errors.email.message}</p>
@@ -70,7 +77,7 @@ const ContactUs = () => {
                 {...register("subject", { required: "Subject is required" })}
                 type="text"
                 id="subject"
-                className="input border border-gray-300"
+                className="input border border-gray-300 w-full"
               />
               {errors.subject && (
                 <p className="text-red-500">{errors.subject.message}</p>
@@ -86,13 +93,13 @@ const ContactUs = () => {
               <textarea
                 {...register("message", { required: "Message is required" })}
                 id="message"
-                className="input textarea border border-gray-300"
+                className="input textarea border border-gray-300 w-full"
               />
               {errors.message && (
                 <p className="text-red-500">{errors.message.message}</p>
               )}
             </div>
-            <button type="submit" className="btn btn-primary ml-12 mb-2">
+            <button type="submit" className="btn btn-primary ml-12 mb-2 w-1/2 text-center">
               Submit
             </button>
             {successMessage && (
