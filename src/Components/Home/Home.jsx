@@ -1,6 +1,8 @@
+import { useLoaderData } from "react-router-dom";
 import Navbar from "../Navbar/Navbar"
-
+import CartItemCard from "../CartItemCard/CartItemCard";
 function Home() {
+  const product = useLoaderData();
     return (
       <>
         <Navbar></Navbar>
@@ -63,6 +65,19 @@ function Home() {
               </div>
             </div>
           </div>
+        </div>
+        {/* This is craft items */}
+        <div className="text-center  space-y-6 mt-5 ">
+          <h1 className="font-bold text-5xl">Our Products</h1>
+          <p>
+            Explore our diverse range of high-quality craft items, meticulously
+            handcrafted to add charm and elegance to your home
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 my-4 mx-5">
+          {product.map((product) => (
+            <CartItemCard key={product._id} product={product}></CartItemCard>
+          ))}
         </div>
       </>
     );

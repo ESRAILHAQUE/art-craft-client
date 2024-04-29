@@ -1,28 +1,65 @@
-import React from "react";
+
 import Swal from "sweetalert";
+import React, { useState } from "react";
+
 function AddCraft() {
-  const handleData = () => {
-    Swal({
-      title: "Congratulations!",
-      text: "Product is added!",
-      icon: "success",
-    });
+    const [customization, setCustomization] = useState(false);
+  const handleData = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const image = form.image.value;
+    const itemName = form.itemName.value;
+    const subCatagory = form.subCatagory.value;
+    const description = form.description.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const time = form.time.value;
+    const stock = form.stock.value;
+    const product = {
+      image,itemName,subCatagory,description,price,rating,time,stock
+    }
+    console.log(product);
+    fetch("http://localhost:3000/addCraftItem", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal({
+            title: "Congratulations!",
+            text: "Product is added!",
+            icon: "success",
+          });
+        }
+      });
+
+    
   };
+  const handleCustomizationChange = (event) => {
+    event.preventDefault();
+      setCustomization(event.target.checked);
+    };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content">
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleData} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Image</span>
                 </label>
                 <input
-                  type="file"
+                  type="text"
                   placeholder="Image URL"
-                  className=""
+                  className="input input-bordered"
                   required
+                  name="image"
                 />
               </div>
               <div className="form-control">
@@ -34,6 +71,7 @@ function AddCraft() {
                   placeholder="Item Name"
                   className="input input-bordered"
                   required
+                  name="itemName"
                 />
               </div>
               <div className="form-control">
@@ -45,6 +83,7 @@ function AddCraft() {
                   placeholder="SubCatagory Name"
                   className="input input-bordered"
                   required
+                  name="subCatagory"
                 />
               </div>
               <div className="form-control">
@@ -56,6 +95,7 @@ function AddCraft() {
                   placeholder="Short Description"
                   className="input input-bordered"
                   required
+                  name="description"
                 />
               </div>
               <div className="form-control">
@@ -67,6 +107,7 @@ function AddCraft() {
                   placeholder="Price"
                   className="input input-bordered"
                   required
+                  name="price"
                 />
               </div>
               <div className="form-control">
@@ -78,21 +119,19 @@ function AddCraft() {
                   placeholder="Rating"
                   className="input input-bordered"
                   required
+                  name="rating"
                 />
               </div>
               <div className="form-control">
                 <label className="label cursor-pointer">
                   <span className="label-text">Customization</span>
+                  <input
+                    type="checkbox"
+                    className="checkbox checkbox-primary"
+                    checked={customization}
+                    onChange={handleCustomizationChange}
+                  />
                   <span>Yes</span>
-                  <input
-                    type="checkbox"
-                    className="checkbox checkbox-primary"
-                  />
-                  <span>No</span>
-                  <input
-                    type="checkbox"
-                    className="checkbox checkbox-primary"
-                  />
                 </label>
               </div>
               <div className="form-control">
@@ -104,6 +143,7 @@ function AddCraft() {
                   placeholder="Preocessing time"
                   className="input input-bordered"
                   required
+                  name="time"
                 />
               </div>
               <div className="form-control">
@@ -115,6 +155,7 @@ function AddCraft() {
                   placeholder="Stock Status"
                   className="input input-bordered"
                   required
+                  name="stock"
                 />
               </div>
               <div className="form-control">
@@ -140,7 +181,7 @@ function AddCraft() {
                 />
               </div>
               <div className="form-control mt-6">
-                <button onClick={handleData} className="btn btn-primary">
+                <button type="submit" className="btn btn-primary">
                   Add
                 </button>
               </div>

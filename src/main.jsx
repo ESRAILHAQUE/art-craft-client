@@ -12,6 +12,7 @@ import Home from './Components/Home/Home';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ContactUs from './Components/ContactUs/ContactUs';
 import AddCraft from './Components/AddCraft/AddCraft';
+import ViewDetailsPage from './Components/ViewDetailsPage/ViewDetailsPage';
 
 
 const router = createBrowserRouter([
@@ -20,10 +21,11 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      {
-        path: "/",
-        element: <Home></Home>,
-      },
+      // {
+      //   path: "/",
+      //   element: <Home></Home>,
+      //   loader: () => fetch("http://localhost:3000/craftItems"),
+      // },
       {
         path: "/login",
         element: <Login title="Login"></Login>,
@@ -33,16 +35,16 @@ const router = createBrowserRouter([
         element: <Register title="Register"></Register>,
       },
       {
+        path: "/productDetails",
+        element: <ViewDetailsPage></ViewDetailsPage>,
+      },
+      {
         path: "/contactUs",
         element: <ContactUs title="ContactUs"></ContactUs>,
       },
       {
         path: "/addCraftItem",
-        element: (
-          <PrivateRoute>
-            <AddCraft title="addCraftItem"></AddCraft>
-          </PrivateRoute>
-        ),
+        element: <AddCraft title="addCraftItem"></AddCraft>,
       },
       {
         path: "/allArtAndCrafts",
