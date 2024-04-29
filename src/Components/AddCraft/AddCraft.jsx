@@ -1,4 +1,13 @@
+import React from "react";
+import Swal from "sweetalert";
 function AddCraft() {
+  const handleData = () => {
+    Swal({
+      title: "Congratulations!",
+      text: "Product is added!",
+      icon: "success",
+    });
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -131,7 +140,9 @@ function AddCraft() {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Add</button>
+                <button onClick={handleData} className="btn btn-primary">
+                  Add
+                </button>
               </div>
             </form>
           </div>
@@ -140,4 +151,4 @@ function AddCraft() {
     </div>
   );
 }
-export default AddCraft
+export default AddCraft;
