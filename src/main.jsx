@@ -36,18 +36,18 @@ const router = createBrowserRouter([
         path: "/contactUs",
         element: <ContactUs title="ContactUs"></ContactUs>,
       },
-      // {
-      //   path: "/addCraftItem",
-      //   element: <AddCraft title="addCraftItem"></AddCraft>,
-      // },
-      // {
-      //   path: "/allArtAndCrafts",
-      //   element: (
-      //     <PrivateRoute>
-      //       <AllArtAndCraft title="allArtAndCrafts"></AllArtAndCraft>
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: "/addCraftItem",
+        element: <AddCraft title="addCraftItem"></AddCraft>,
+      },
+      {
+        path: "/allArtAndCrafts",
+        element: (
+          <PrivateRoute>
+            <AllArtAndCraft title="allArtAndCrafts"></AllArtAndCraft>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
