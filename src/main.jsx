@@ -32,22 +32,22 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register title="Register"></Register>,
       },
-      // {
-      //   path: "/contactUs",
-      //   element: <ContactUs title="ContactUs"></ContactUs>,
-      // },
+      {
+        path: "/contactUs",
+        element: <ContactUs title="ContactUs"></ContactUs>,
+      },
       // {
       //   path: "/addCraftItem",
       //   element: <AddCraft title="addCraftItem"></AddCraft>,
       // },
-      {
-        path: "/allArtAndCrafts",
-        element: (
-          <PrivateRoute>
-            <AllArtAndCraft title="allArtAndCrafts"></AllArtAndCraft>
-          </PrivateRoute>
-        ),
-      },
+      // {
+      //   path: "/allArtAndCrafts",
+      //   element: (
+      //     <PrivateRoute>
+      //       <AllArtAndCraft title="allArtAndCrafts"></AllArtAndCraft>
+      //     </PrivateRoute>
+      //   ),
+      // },
     ],
   },
 ]);

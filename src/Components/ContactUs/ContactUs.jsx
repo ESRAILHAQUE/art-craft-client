@@ -16,7 +16,7 @@ const ContactUs = () => {
   return (
     <div className="p-8">
       <h3 className="text-3xl text-center mb-6 font-bold">Contact Us</h3>
-      <div className="flex lg:px-16">
+      <div className="flex flex-col lg:flex-row lg:px-16">
         <div className="container mt-10">
           <form onSubmit={handleSubmit(onSubmit)} className="max-w-md">
             <div className="mb-4">
