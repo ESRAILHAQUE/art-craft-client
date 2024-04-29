@@ -21,11 +21,11 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      // {
-      //   path: "/",
-      //   element: <Home></Home>,
-      //   loader: () => fetch("http://localhost:3000/craftItems"),
-      // },
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch("http://localhost:3000/craftItems"),
+      },
       {
         path: "/login",
         element: <Login title="Login"></Login>,
