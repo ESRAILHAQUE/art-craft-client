@@ -147,7 +147,7 @@ const Login = () => {
             {success && <p className="text-green-600">{success}</p>}
             <div>
               {user ? (
-                <button onClick={handleGoogleLogOut}>Log Out</button>
+                <button onClick={handleGoogleLogOut}></button>
               ) : (
                 <>
                   <h2 className="text-lg">LogIn With</h2>
@@ -165,13 +165,7 @@ const Login = () => {
                   </button>
                 </>  
               )}
-              {user && (
-                <div>
-                  User: {user?.displayName} <br />
-                  email: {user?.email} <br />
-                  <img src={user?.photoURL} alt="" />
-                </div>
-              )}
+            
             </div>
             <p className="text-base p-4">
               New to the website? please{" "}

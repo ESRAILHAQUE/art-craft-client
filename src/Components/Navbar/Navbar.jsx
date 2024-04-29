@@ -55,7 +55,10 @@ const Header = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl hidden md:block lg:block"> Jute & Wooden Craft</a>
+          <a className="btn btn-ghost text-xl hidden md:block lg:block">
+            {" "}
+            Jute & Wooden Craft
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal space-x-3 px-1">{navLinks}</ul>
@@ -65,7 +68,8 @@ const Header = () => {
             <>
               <div className="tooltip" data-tip={user.email}>
                 <button className="btn">
-                  <CgProfile />
+                  <img className="rounded-full w-12 h-12" src={user?.photoURL} alt="" />
+                  
                 </button>
               </div>
               <button onClick={handleLogOut} className="btn btn-accent">
