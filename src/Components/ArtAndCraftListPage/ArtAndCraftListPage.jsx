@@ -10,7 +10,7 @@ function ArtAndCraftList() {
   const [loading,setLoading]=useState(loadedProduct)
 
   useEffect(() => {
-    fetch("http://localhost:3000/craftItems")
+    fetch("https://art-craft-server-n1uwpm4x5-md-esrail-haques-projects.vercel.app/craftItems")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -52,7 +52,7 @@ function ArtAndCraftList() {
     }).then((result) => {
       if (result.isConfirmed) {
       
-        fetch(`http://localhost:3000/artAndCraftListPage/${_id}`, {
+        fetch(`https://art-craft-server-n1uwpm4x5-md-esrail-haques-projects.vercel.app/artAndCraftListPage/${_id}`, {
           method:'DELETE'
         })
           .then(res => res.json())

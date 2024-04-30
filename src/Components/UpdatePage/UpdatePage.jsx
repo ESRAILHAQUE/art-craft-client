@@ -33,7 +33,7 @@ function UpdatePage() {
      
    };
 
-   fetch(`http://localhost:3000/artAndCraftListPage/${product._id}`, {
+   fetch(`https://art-craft-server-n1uwpm4x5-md-esrail-haques-projects.vercel.app/artAndCraftListPage/${product._id}`, {
      method: "PUT",
      headers: {
        "Content-Type": "application/json",
@@ -70,7 +70,7 @@ function UpdatePage() {
  
  return (
    <>
-     <div>name:</div>
+     
      <div>
        <div className="hero min-h-screen bg-base-200">
          <div className="hero-content">

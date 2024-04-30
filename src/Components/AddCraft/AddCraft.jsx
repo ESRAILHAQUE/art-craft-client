@@ -22,7 +22,7 @@ function AddCraft() {
       image,itemName,subCatagory,description,price,rating,time,stock,customization,name,email
     }
     console.log(product);
-    fetch("http://localhost:3000/addCraftItem", {
+    fetch("https://art-craft-server-n1uwpm4x5-md-esrail-haques-projects.vercel.app/addCraftItem", {
       method: "POST",
       headers: {
         "content-type": "application/json",

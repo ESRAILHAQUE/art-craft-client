@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/craftItems"),
+        loader: () => fetch("https://art-craft-server-n1uwpm4x5-md-esrail-haques-projects.vercel.app/craftItems"),
       },
       {
         path: "/login",
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/updatePage/${params.id}`),
+          fetch(`https://art-craft-server-n1uwpm4x5-md-esrail-haques-projects.vercel.app/updatePage/${params.id}`),
       },
 
       {
@@ -57,12 +57,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/productDetails/${params.id}`),
+          fetch(`https://art-craft-server-n1uwpm4x5-md-esrail-haques-projects.vercel.app/productDetails/${params.id}`),
       },
       {
         path: "/artAndCraftListPage",
-        element: <ArtAndCraftListPage></ArtAndCraftListPage>,
-        loader: () => fetch("http://localhost:3000/craftItems"),
+        element: (
+          <PrivateRoute>
+            <ArtAndCraftListPage></ArtAndCraftListPage>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("https://art-craft-server-n1uwpm4x5-md-esrail-haques-projects.vercel.app/craftItems"),
       },
       {
         path: "/contactUs",
@@ -83,9 +87,9 @@ const router = createBrowserRouter([
       {
         path: "/allArtAndCrafts",
         element: (
-          <PrivateRoute>
+          
             <AllArtAndCraft title="allArtAndCrafts"></AllArtAndCraft>
-          </PrivateRoute>
+          
         ),
       },
     ],

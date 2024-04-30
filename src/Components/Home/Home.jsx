@@ -6,14 +6,10 @@ function Home() {
   const product = useLoaderData();
     return (
       <>
-        
         <div>
           <div className="carousel w-full">
-            <div id="slide1" className="carousel-item relative w-full h-[80vh]">
-              <img
-                src="https://i.pinimg.com/originals/80/7a/26/807a26082ddb0362216bd7584b9aed2c.jpg"
-                className="w-full"
-              />
+            <div id="slide1" className="carousel-item relative w-full h-[70vh]">
+              <img src="https://i.ibb.co/bF09VZr/11.jpg" className="w-full" />
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href="#slide4" className="btn btn-circle">
                   ❮
@@ -39,7 +35,7 @@ function Home() {
             </div>
             <div id="slide3" className="carousel-item relative w-full h-[80vh]">
               <img
-                src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
+                src="https://i.ibb.co/4W7ntQf/199551-15.jpg"
                 className="w-full"
               />
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -53,9 +49,10 @@ function Home() {
             </div>
             <div id="slide4" className="carousel-item relative w-full h-[80vh]">
               <img
-                src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
+                src="https://i.pinimg.com/originals/80/7a/26/807a26082ddb0362216bd7584b9aed2c.jpg"
                 className="w-full"
               />
+
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href="#slide3" className="btn btn-circle">
                   ❮
