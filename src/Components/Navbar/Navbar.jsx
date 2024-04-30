@@ -19,6 +19,9 @@ const Header = () => {
         <NavLink to="/artAndCraftListPage">My Art&Craft List</NavLink>
       </li>
       <li>
+        <NavLink to="/aboutus">About Us</NavLink>
+      </li>
+      <li>
         <NavLink to="/contactUs">Contact Us</NavLink>
       </li>
     </>

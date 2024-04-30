@@ -13,9 +13,10 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ContactUs from './Components/ContactUs/ContactUs';
 import AddCraft from './Components/AddCraft/AddCraft';
 import ViewDetailsPage from './Components/ViewDetailsPage/ViewDetailsPage';
-import ArtAndCraftList from './Components/ArtAndCraftList/ArtAndCraftList';
 import ArtAndCraftListPage from './Components/ArtAndCraftListPage/ArtAndCraftListPage';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
+import UpdatePage from './Components/UpdatePage/UpdatePage';
+import About from './Components/About/About';
 
 
 const router = createBrowserRouter([
@@ -38,8 +39,25 @@ const router = createBrowserRouter([
         element: <Register title="Register"></Register>,
       },
       {
+        path: "/updatePage/:id",
+        element: (
+          <PrivateRoute>
+            <UpdatePage></UpdatePage>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/updatePage/${params.id}`),
+      },
+
+      {
         path: "/productDetails/:id",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/productDetails/${params.id}`),
       },
       {
         path: "/artAndCraftListPage",
@@ -51,8 +69,16 @@ const router = createBrowserRouter([
         element: <ContactUs title="ContactUs"></ContactUs>,
       },
       {
+        path: "/aboutus",
+        element: <About></About>,
+      },
+      {
         path: "/addCraftItem",
-        element: <AddCraft title="addCraftItem"></AddCraft>,
+        element: (
+          <PrivateRoute>
+            <AddCraft title="addCraftItem"></AddCraft>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allArtAndCrafts",

@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
 import CartItemCard from "../CartItemCard/CartItemCard";
+import ContactUs from "../ContactUs/ContactUs";
 function Home() {
   const product = useLoaderData();
     return (
@@ -79,6 +80,7 @@ function Home() {
             <CartItemCard key={product._id} product={product}></CartItemCard>
           ))}
         </div>
+        <ContactUs></ContactUs>
       </>
     );
 }

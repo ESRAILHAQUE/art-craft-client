@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteLoaderData } from "react-router-dom";
 import { IoStarHalf } from "react-icons/io5";
+import Swal from "sweetalert2";
 
 function ArtAndCraftList() {
   const [products, setProducts] = useState([]);
   const [selectedCustomization, setSelectedCustomization] = useState("");
+  const loadedProduct = useRouteLoaderData();
+  const [loading,setLoading]=useState(loadedProduct)
 
   useEffect(() => {
     fetch("http://localhost:3000/craftItems")
@@ -36,6 +39,38 @@ function ArtAndCraftList() {
         : true
     )
     .sort(sortProducts);
+  const handleDelete=_id=>{
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+      
+        fetch(`http://localhost:3000/artAndCraftListPage/${_id}`, {
+          method:'DELETE'
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+            if (data.deletedCount > 0) {
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "Your file has been deleted.",
+                  icon: "success",
+                });
+              const remaining = loading.filter(cof => cof._id !== _id);
+              setLoading(remaining)
+            }
+        })
+      }
+    });
+  }
 
   return (
     <div>
@@ -43,7 +78,7 @@ function ArtAndCraftList() {
         value={selectedCustomization}
         onChange={handleCustomizationChange}
       >
-        <option value="">Sort By: All Customization </option>
+        <option value="">Filter By: All Customization </option>
         <option value="Yes">Customized</option>
         <option value="No">Not Customized</option>
       </select>
@@ -74,12 +109,12 @@ function ArtAndCraftList() {
             <p>Stock: {product.stock}</p>
             <p>{product.description}</p>
             <div className="card-actions">
-              <Link to={`/productDetails/${product._id}`}>
+              <Link to={`/updatePage/${product._id}`}>
                 <button className="btn btn-primary">Update</button>
               </Link>
-              <Link to={`/productDetails/${product._id}`}>
-                <button className="btn btn-warning">Delete</button>
-              </Link>
+              
+                <button onClick={()=>handleDelete(product._id)} className="btn btn-warning">Delete</button>
+            
             </div>
           </div>
         </div>
