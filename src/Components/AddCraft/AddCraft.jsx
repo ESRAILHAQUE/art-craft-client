@@ -1,9 +1,9 @@
 
 import Swal from "sweetalert";
-import React, { useState } from "react";
+
 
 function AddCraft() {
-    const [customization, setCustomization] = useState(false);
+    
   const handleData = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,8 +15,11 @@ function AddCraft() {
     const rating = form.rating.value;
     const time = form.time.value;
     const stock = form.stock.value;
+    const customization = form.customization.value;
+    const name = form.name.value;
+    const email=form.email.value
     const product = {
-      image,itemName,subCatagory,description,price,rating,time,stock
+      image,itemName,subCatagory,description,price,rating,time,stock,customization,name,email
     }
     console.log(product);
     fetch("http://localhost:3000/addCraftItem", {
@@ -123,16 +126,16 @@ function AddCraft() {
                 />
               </div>
               <div className="form-control">
-                <label className="label cursor-pointer">
+                <label className="label">
                   <span className="label-text">Customization</span>
-                  <input
-                    type="checkbox"
-                    className="checkbox checkbox-primary"
-                    checked={customization}
-                    onChange={handleCustomizationChange}
-                  />
-                  <span>Yes</span>
                 </label>
+                <input
+                  type="text"
+                  placeholder="Yes or No"
+                  className="input input-bordered"
+                  required
+                  name="customization"
+                />
               </div>
               <div className="form-control">
                 <label className="label">
@@ -166,6 +169,7 @@ function AddCraft() {
                   type="email"
                   placeholder="Email"
                   className="input input-bordered"
+                  name="email"
                   required
                 />
               </div>
@@ -177,6 +181,7 @@ function AddCraft() {
                   type="text"
                   placeholder="User Name"
                   className="input input-bordered"
+                  name="userName"
                   required
                 />
               </div>

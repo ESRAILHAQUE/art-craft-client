@@ -15,6 +15,7 @@ import AddCraft from './Components/AddCraft/AddCraft';
 import ViewDetailsPage from './Components/ViewDetailsPage/ViewDetailsPage';
 import ArtAndCraftList from './Components/ArtAndCraftList/ArtAndCraftList';
 import ArtAndCraftListPage from './Components/ArtAndCraftListPage/ArtAndCraftListPage';
+import ProductDetails from './Components/ProductDetails/ProductDetails';
 
 
 const router = createBrowserRouter([
@@ -38,9 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:id",
-        element: <ViewDetailsPage></ViewDetailsPage>,
-        loader: (params) =>
-          fetch(`http://localhost:3000/productDetails/${params.id}`),
+        element: <ProductDetails></ProductDetails>,
       },
       {
         path: "/artAndCraftListPage",
