@@ -1,11 +1,11 @@
 import { useLoaderData } from "react-router-dom";
-import Navbar from "../Navbar/Navbar"
+
 import CartItemCard from "../CartItemCard/CartItemCard";
 function Home() {
   const product = useLoaderData();
     return (
       <>
-        <Navbar></Navbar>
+        
         <div>
           <div className="carousel w-full">
             <div id="slide1" className="carousel-item relative w-full h-[80vh]">

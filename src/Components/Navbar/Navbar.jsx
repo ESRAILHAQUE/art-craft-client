@@ -15,7 +15,12 @@ const Header = () => {
       <li>
         <NavLink to="/addCraftItem">Add Craft Item</NavLink>
       </li>
-      <li><NavLink to='/contactUs'>Contact Us</NavLink> </li>
+      <li>
+        <NavLink to="/artAndCraftListPage">My Art&Craft List</NavLink>
+      </li>
+      <li>
+        <NavLink to="/contactUs">Contact Us</NavLink>
+      </li>
     </>
   );
 
@@ -56,7 +61,7 @@ const Header = () => {
             </ul>
           </div>
           <a className="btn btn-ghost text-xl hidden md:block lg:block">
-            {" "}
+            
             Jute & Wooden Craft
           </a>
         </div>
@@ -69,7 +74,6 @@ const Header = () => {
               <div className="tooltip" data-tip={user.email}>
                 <button className="btn">
                   <img className="rounded-full w-12 h-12" src={user?.photoURL} alt="" />
-                  
                 </button>
               </div>
               <button onClick={handleLogOut} className="btn btn-accent">

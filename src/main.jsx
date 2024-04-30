@@ -13,6 +13,8 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ContactUs from './Components/ContactUs/ContactUs';
 import AddCraft from './Components/AddCraft/AddCraft';
 import ViewDetailsPage from './Components/ViewDetailsPage/ViewDetailsPage';
+import ArtAndCraftList from './Components/ArtAndCraftList/ArtAndCraftList';
+import ArtAndCraftListPage from './Components/ArtAndCraftListPage/ArtAndCraftListPage';
 
 
 const router = createBrowserRouter([
@@ -35,8 +37,15 @@ const router = createBrowserRouter([
         element: <Register title="Register"></Register>,
       },
       {
-        path: "/productDetails",
+        path: "/productDetails/:id",
         element: <ViewDetailsPage></ViewDetailsPage>,
+        loader: (params) =>
+          fetch(`http://localhost:3000/productDetails/${params.id}`),
+      },
+      {
+        path: "/artAndCraftListPage",
+        element: <ArtAndCraftListPage></ArtAndCraftListPage>,
+        loader: () => fetch("http://localhost:3000/craftItems"),
       },
       {
         path: "/contactUs",
